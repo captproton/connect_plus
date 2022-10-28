@@ -1,0 +1,14 @@
+<div class="page-header">
+  <%= link_to sites_path, class: 'btn btn-default' do %>
+    All Sites
+  <% end %>
+  <%= link_to edit_site_path(@site), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show site</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @site.name %></dd>
+</dl>

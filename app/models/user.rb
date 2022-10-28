@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :services
   has_many :notifications, as: :recipient, dependent: :destroy
+
+  # App-Specific models
+  has_many :sites, dependent: :destroy
 end
