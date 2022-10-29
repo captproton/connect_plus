@@ -1,0 +1,39 @@
+<div class="basic_theme">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Sites</h1>
+        </div>
+
+    </div>
+
+
+
+    <ul class="card_grid">
+        <li class="card">
+            <h3>Change Plan</h3>
+            <div class="m-3">
+                <div class="header">Free Trial</div>
+                <div class="plan-description text-justify">Ends 12/12/2022</div>
+                <%= link_to "Change Plan" , new_site_path, class: "btn btn-primary m-5 p-3" %>
+        
+            </div>
+        
+        
+        </li>
+        <li class="card">
+            <h3>Manage Subscription</h3>
+            <div class="m-3">
+                <ul>
+                    <li>Edit Payment Method</li>
+                    <li>View Billing History/Invoices</li>
+                    <li>Cancel Or Pause Subscription</li>
+                </ul>
+                <%= link_to "Manage Subscription" , 
+                            new_site_path, 
+                            class: "btn btn-primary m-5 p-3" 
+                %>
+        
+            </div>
+        </li>
+    </ul>
+</div>

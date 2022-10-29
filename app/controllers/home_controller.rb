@@ -7,4 +7,10 @@ class HomeController < ApplicationController
 
   def privacy
   end
+
+  def domains
+  end
+
+  def billing
+  end
 end
