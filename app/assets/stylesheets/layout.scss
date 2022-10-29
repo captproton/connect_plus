@@ -1,0 +1,19 @@
+.card_grid { 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  }
+.card_grid > .card {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  display: grid;
+}
+.card_grid > .card svg {
+  max-width: 100%;
+}
+
+.card .card_actions {
+  max-width: 100%;
+  background-color: #e2e2e2;
+}
