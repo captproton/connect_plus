@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :sites
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
+  get '/domains', to: 'home#domains'
+  get '/billing', to: 'home#billing'
 authenticate :user, lambda { |u| u.admin? } do
   mount Sidekiq::Web => '/sidekiq'
 
