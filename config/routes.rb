@@ -1,11 +1,17 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :sites
+  # site creation and mgt
+  resources :sites do
+    resources :build, controller: 'sites/build'
+  end
+
+  # static pages
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
   get '/domains', to: 'home#domains'
   get '/billing', to: 'home#billing'
+
 authenticate :user, lambda { |u| u.admin? } do
   mount Sidekiq::Web => '/sidekiq'
 
