@@ -8,6 +8,9 @@ end
 class Site < ApplicationRecord
   include FormSteps
   belongs_to :user
+  has_rich_text :content
+  has_one_attached :logo  
+
 
   enum status: %i[initated processing published]
 

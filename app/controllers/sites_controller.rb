@@ -11,6 +11,8 @@ class SitesController < ApplicationController
 
   # GET /sites/1 or /sites/1.json
   def show
+    @brand_primary_color = @site.brand_primary_color.split(")")[0].split("(").last.split(",")
+    # @brand_primary_color = "rgba(#{brand_primary_color[0]},#{brand_primary_color[1]},#{brand_primary_color[2]},#{brand_primary_color[3]})"
   end
 
   # GET /sites/new

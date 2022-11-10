@@ -1,6 +1,14 @@
 // https://codepen.io/captproton/pen/XWYdZMz 
 // (forked from https://codepen.io/argyleink/pen/vYxrrpd)
 // part of https://web.dev/building-a-color-scheme/
+
+.panel {
+  width: 100%;
+  height: 40vh;
+  margin-bottom: 10px;
+  background-color: rgb(209, 42, 42, 1);
+}
+
 html {
   /* brand foundation */
   --brand-hue: 200;

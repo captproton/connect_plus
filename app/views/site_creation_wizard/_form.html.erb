@@ -1,0 +1,35 @@
+<%= form_with(model: site) do |form| %>
+  <% if site.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(site.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+      <% site.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+
+  <div class="mb-3">
+    <% if site.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', site, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if site.persisted? %>
+      <%= link_to "Cancel", site, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", sites_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
