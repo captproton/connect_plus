@@ -1,119 +1,20 @@
-<div class="color-scheme">
-    <h2>
-        <%= params[:id].humanize.titleize %>
-    </h2>
-<h1>Choose a color scheme or create your own.</h1>
-
+<div class="color-scheme step">
     <%# %>
-    <%# demo page showing what the user is creating start %>
+    <%# START demo page showing what the user is creating start %>
     <div class="theme_builder_container">
-        <header id="header">
-            <div class="header-logo">
-                <span>Your Name Here</span>
-            </div>
-            <nav >
-                <%= render "navlinks" %>
-            </nav>
-            <div class="cta-button">
-                <button class="btn btn-primary">Subscribe</button>
-            </div>
-        </header>
-
-        <main>
-            <section class="hero" style='background-image: url("https://jetpage.co/static/media/blog-banner.2b6a83f7.png");' >
-<div class="container">
-    <div class="wizrd-banner-content">
-        <h2><span>Welcome to the most reliable <br> source for healthy recipes!</span></h2><span
-            class="wizrd-description">Massa viverra malesuada imperdiet facilisis egestas sem. Consectetur a, tempus sed
-            ultrices. Aenean gravida lobortis elit accumsan dignissim. Mauris id donec odio sit arcu ipsum platea
-            dignissim.</span>
-        <div class="wizrd-form-wrapper">
-            <form class="wizrd-newsletter">
-                <div class="form-group"><input class="form-control" placeholder="Enter your email" type="text"></div>
-                <button type="submit" class="btn btn-primary">Subscribe!</button>
-            </form>
-        </div>
+        <%= render "builder_header" %>
     </div>
-</div>
+    <%# FINISH demo page showing what the user is creating finish %>
 
-            </section>
+    <%# START builder form start %>
+    <%# FINISH builder form finish %>
 
-        </main>
-        <footer id="footer">
-            &nbsp;
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex ducimus optio eius voluptatem dolor explicabo rerum tempore iure aliquid cupiditate ipsa accusantium quaerat quasi odit vero, laborum cumque error architecto eveniet, illum exercitationem esse minus sed eum! Deleniti repudiandae nesciunt sapiente facilis rerum vero laudantium aperiam officiis, totam consequuntur perferendis, expedita autem qui, ab soluta.
-        </footer>
-    </div>
-    <%# demo page showing what the user is creating finish %>
-
-    <!-- <div class="panel" id="panel"></div> -->
-    This is the best color scheme!
     <div class="color-picker"></div>
-    <!-- One of the following themes -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" />
-    <!-- 'classic' theme -->
 
-    <!-- Modern or es5 bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <!-- START color-picker  support-->
+    <%= render "color_picker_support" %>
+    <!-- FINISH color-picker  support-->
 
-    <script>
-        let header = document.getElementById('header')
-        let footer = document.getElementById('footer')
-        // Simple example, see optional options for more configuration.
-        const pickr = Pickr.create({
-            el: '.color-picker',
-            theme: 'classic', // or 'monolith', or 'nano'
-
-            swatches: [
-                'rgba(244, 67, 54, 1)',
-                'rgba(233, 30, 99, 0.95)',
-                'rgba(156, 39, 176, 0.9)',
-                'rgba(103, 58, 183, 0.85)',
-                'rgba(63, 81, 181, 0.8)',
-                'rgba(33, 150, 243, 0.75)',
-                'rgba(3, 169, 244, 0.7)',
-                'rgba(0, 188, 212, 0.7)',
-                'rgba(0, 150, 136, 0.75)',
-                'rgba(76, 175, 80, 0.8)',
-                'rgba(139, 195, 74, 0.85)',
-                'rgba(205, 220, 57, 0.9)',
-                'rgba(255, 235, 59, 0.95)',
-                'rgba(255, 193, 7, 1)'
-            ],
-
-            components: {
-
-                // Main components
-                preview: true,
-                opacity: true,
-                hue: true,
-
-                // Input / output Options
-                interaction: {
-                    hex: true,
-                    rgba: false,
-                    hsla: true,
-                    hsva: true,
-                    cmyk: false,
-                    input: true,
-                    clear: false,
-                    save: true
-                }
-            }
-        });   
-        
-        // events
-        pickr.on('change', (...args) => {
-            let color = args[0].toHSLA();
-            console.log(color);
-            console.log(`color is hsl(${color[0]},${color[1]},${color[2]},${color[3]})`)
-            this.header.style.backgroundColor = `hsla(${color[0]},${color[1]}%,${color[2]}%,${color[3]})`;
-            this.footer.style.backgroundColor = `hsla(${color[0]},${color[1]}%,${color[2]}%,${color[3]})`;
-            // background: hsla(210 60 % 60 %);
-            this.site_brand_primary_color.value = `${color[0]},${color[1]}%,${color[2]}%,${color[3]}`;
-            
-        });
-    </script>
     <span>form start</span>
     <%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
         <%= form.hidden_field :brand_primary_color, value: "rgba(255,255,255)" %>
