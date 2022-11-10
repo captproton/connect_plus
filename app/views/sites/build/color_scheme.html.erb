@@ -1,29 +1,18 @@
 <div class="color-scheme">
-        <h1>Choose a color scheme or create your own.</h1>
     <h2>
         <%= params[:id].humanize.titleize %>
     </h2>
+<h1>Choose a color scheme or create your own.</h1>
+
     <%# %>
     <%# demo page showing what the user is creating start %>
     <div class="theme_builder_container">
-        <header >
+        <header id="header">
             <div class="header-logo">
-
+                <span>Your Name Here</span>
             </div>
-            <nav class="desktop">
-                <ul>
-                    <li><a href="#">Homebrew</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <nav>
-                <div class="mobile-icon"></div>
-                <ul>
-                    <li><a href="#"></a> </li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+            <nav >
+                <%= render "navlinks" %>
             </nav>
             <div class="cta-button">
                 <button class="btn btn-primary">Subscribe</button>
@@ -50,10 +39,14 @@
             </section>
 
         </main>
+        <footer id="footer">
+            &nbsp;
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex ducimus optio eius voluptatem dolor explicabo rerum tempore iure aliquid cupiditate ipsa accusantium quaerat quasi odit vero, laborum cumque error architecto eveniet, illum exercitationem esse minus sed eum! Deleniti repudiandae nesciunt sapiente facilis rerum vero laudantium aperiam officiis, totam consequuntur perferendis, expedita autem qui, ab soluta.
+        </footer>
     </div>
     <%# demo page showing what the user is creating finish %>
 
-    <div class="panel" id="panel"></div>
+    <!-- <div class="panel" id="panel"></div> -->
     This is the best color scheme!
     <div class="color-picker"></div>
     <!-- One of the following themes -->
@@ -64,7 +57,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
 
     <script>
-        let panel = document.getElementById('panel')
+        let header = document.getElementById('header')
+        let footer = document.getElementById('footer')
         // Simple example, see optional options for more configuration.
         const pickr = Pickr.create({
             el: '.color-picker',
@@ -113,7 +107,8 @@
             let color = args[0].toHSLA();
             console.log(color);
             console.log(`color is hsl(${color[0]},${color[1]},${color[2]},${color[3]})`)
-            this.panel.style.backgroundColor = `hsla(${color[0]},${color[1]}%,${color[2]}%,${color[3]})`;
+            this.header.style.backgroundColor = `hsla(${color[0]},${color[1]}%,${color[2]}%,${color[3]})`;
+            this.footer.style.backgroundColor = `hsla(${color[0]},${color[1]}%,${color[2]}%,${color[3]})`;
             // background: hsla(210 60 % 60 %);
             this.site_brand_primary_color.value = `${color[0]},${color[1]}%,${color[2]}%,${color[3]}`;
             

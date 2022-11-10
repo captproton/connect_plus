@@ -9,6 +9,25 @@
   background-color: rgb(209, 42, 42, 1);
 }
 
+.theme_builder_container header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 2px;
+  grid-row-gap: 0px;
+}
+
+
+
+nav ul > li {
+    display: inline-block;
+    /* You can also add some margins here to make it look prettier */
+}
+// possible responsive demo
+// .desktop {
+//   display: none;
+// }
+
 html {
   /* brand foundation */
   --brand-hue: 200;
