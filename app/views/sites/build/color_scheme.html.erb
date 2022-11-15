@@ -1,27 +1,73 @@
-<div class="color-scheme step">
+<div class="builder_steps color-scheme step1">
     <%# %>
+    <%# START builder form start %>
+        <div class="theme-builder-prompts step1"  style="background-color: #D3D3D3;">
+            <div class="brand-color-prompt">
+                <div class="label">
+                    Set your brand color:
+                </div>
+                <div class="color-picker"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                
+            </div>
+            
+            <!-- START color-picker  support-->
+            <%= render "color_picker_support" %>
+            <!-- FINISH color-picker  support-->
+            
+            <nav class="theme-builder-nav">
+                <div class="next-step">
+                <%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
+                    <%= form.hidden_field :brand_primary_color, value: "rgba(255,255,255)" %>
+                        <%= form.submit 'Next Step' , class:" btn btn-primary" %>
+                            <% end %>
+
+                </div>
+                <div class="spacer"></div>
+                <div class="skip-step">
+                    <%= link_to 'skip' , next_wizard_path %>
+                </div>
+                <div class="spacer"></div>
+            </nav>
+
+        </div>
+    <%# FINISH builder form finish %>
+
     <%# START demo page showing what the user is creating start %>
     <div class="theme_builder_container">
         <%= render "builder_header" %>
+        <main class="wizrd-site-main">
+        <%= render "builder_hero" %>
+        <%= render "builder_recent_blogs" %>
+
+        </main>
     </div>
     <%# FINISH demo page showing what the user is creating finish %>
 
-    <%# START builder form start %>
-    <%# FINISH builder form finish %>
-
-    <div class="color-picker"></div>
-
-    <!-- START color-picker  support-->
-    <%= render "color_picker_support" %>
-    <!-- FINISH color-picker  support-->
-
-    <span>form start</span>
-    <%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
-        <%= form.hidden_field :brand_primary_color, value: "rgba(255,255,255)" %>
-        <%= form.submit 'Next Step' , class:" btn btn-primary" %>
-    <% end %>
-        <span>form finish</span>
-
-    <%= link_to 'skip' , next_wizard_path %>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+<script>
+    // .theme_builder_container switch from list of "latest" to "Most Popular"
+    // ** needs jquery for now
+    $("document").ready(function () {
+        $(".tab-slider--body").hide();
+        $(".tab-slider--body:first").show();
+    });
+
+    $(".tab-slider--nav li").click(function () {
+        $(".tab-slider--body").hide();
+        var activeTab = $(this).attr("rel");
+        $("#" + activeTab).fadeIn();
+        if ($(this).attr("rel") == "tab2") {
+            $('.tab-slider--tabs').addClass('slide');
+        } else {
+            $('.tab-slider--tabs').removeClass('slide');
+        }
+        $(".tab-slider--nav li").removeClass("active");
+        $(this).addClass("active");
+    });
+
+</script>
