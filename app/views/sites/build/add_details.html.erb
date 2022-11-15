@@ -1,0 +1,28 @@
+<h1>add details</h1>
+
+    <span>form start</span>
+    <%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
+        <div id="names" class="mb-3">
+            <%= form.label :website_name, class: 'form-label' %><span class="required">⍟</span>
+            <span class="names">
+                <%= form.text_field :name, class: 'form-control' , placeholder: "Subject" %>
+            </span>
+            <%= form.label :domain_name, class: 'form-label' %><span class="required">⍟</span>
+            <span class="names">
+                <%= form.text_field :subdomain, class: 'form-control' , placeholder: "domain name" %>
+            </span>
+            <p class="help">
+                Good subject lines give people a good reason to check out your content.<br />
+                Preview text (optional) appears in the subject line after the subject line.
+            </p>
+        </div>
+        <div class="logo_upload">
+            <%= form.label :logo, class: 'form-label' %><br />
+            <%= form.file_field :logo %>
+        </div>
+    <%= form.submit 'Next Step' , class:" btn btn-primary" %>
+    <% end %>
+    <span>form finish</span>
+
+
+<%= link_to 'skip' , next_wizard_path %>

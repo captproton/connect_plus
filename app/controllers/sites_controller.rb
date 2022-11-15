@@ -1,14 +1,18 @@
 class SitesController < ApplicationController
+
   before_action :authenticate_user!
   before_action :set_site, only: %i[ show edit update destroy ]
 
   # GET /sites or /sites.json
   def index
     @sites = Site.all
+    @site = Site.new    
   end
 
   # GET /sites/1 or /sites/1.json
   def show
+    @brand_primary_color = @site.brand_primary_color.split(")")[0].split("(").last.split(",")
+    # @brand_primary_color = "rgba(#{brand_primary_color[0]},#{brand_primary_color[1]},#{brand_primary_color[2]},#{brand_primary_color[3]})"
   end
 
   # GET /sites/new
@@ -26,7 +30,8 @@ class SitesController < ApplicationController
 
     respond_to do |format|
       if @site.save
-        format.html { redirect_to site_url(@site), notice: "Site was successfully created." }
+        format.html { redirect_to site_build_path(@site,'color_scheme'), 
+                    notice: "Site was successfully initiated." }
         format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -66,6 +71,6 @@ class SitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def site_params
-      params.require(:site).permit(:name, :user_id)
+      params.require(:site).permit(:name, :user_id, :status)
     end
 end

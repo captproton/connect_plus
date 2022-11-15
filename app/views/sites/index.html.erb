@@ -13,7 +13,10 @@
   <ul class="card_grid">
       <li class="card">
         <div class="m-3">
-        <%= link_to "New Site" , new_site_path, class: "btn btn-primary m-5 p-3" %>
+        <%= form_with(model: @site) do |form| %>
+          <%= form.hidden_field(:status, value: 'initated')  %>
+          <%= form.button("Create site", class: "btn btn-primary m-5 p-3") %>
+        <% end %>
           <p class="text-justify">Create a new site with the help of our smart assessment</p>
 
         </div>

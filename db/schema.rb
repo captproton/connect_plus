@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_28_202816) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_10_002601) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,6 +93,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_28_202816) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0, null: false
+    t.string "brand_primary_color", default: "", null: false
+    t.string "subdomain"
+    t.string "brand_prime_clr_font"
+    t.string "brand_secondary_color"
+    t.string "brand_sec_clr_font"
     t.index ["user_id"], name: "index_sites_on_user_id"
   end
 
