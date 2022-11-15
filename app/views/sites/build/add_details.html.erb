@@ -1,28 +1,81 @@
+<div class="builder_steps add-details step1">
+    <%# START builder form start %>
+    <div class="theme-builder-prompts step1">
 <h1>add details</h1>
 
-    <span>form start</span>
-    <%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
-        <div id="names" class="mb-3">
-            <%= form.label :website_name, class: 'form-label' %><span class="required">⍟</span>
+<span>form start</span>
+<%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
+    <div id="names" class="mb-3">
+        <%= form.label :website_name, class: 'form-label' %><span class="required">⍟</span>
             <span class="names">
                 <%= form.text_field :name, class: 'form-control' , placeholder: "Subject" %>
             </span>
             <%= form.label :domain_name, class: 'form-label' %><span class="required">⍟</span>
-            <span class="names">
-                <%= form.text_field :subdomain, class: 'form-control' , placeholder: "domain name" %>
-            </span>
-            <p class="help">
-                Good subject lines give people a good reason to check out your content.<br />
-                Preview text (optional) appears in the subject line after the subject line.
-            </p>
-        </div>
-        <div class="logo_upload">
-            <%= form.label :logo, class: 'form-label' %><br />
+                <span class="names">
+                    <%= form.text_field :subdomain, class: 'form-control' , placeholder: "domain name" %>
+                </span>
+                <p class="help">
+                    Good subject lines give people a good reason to check out your content.<br />
+                    Preview text (optional) appears in the subject line after the subject line.
+                </p>
+    </div>
+    <div class="logo_upload">
+        <%= form.label :logo, class: 'form-label' %><br />
             <%= form.file_field :logo %>
+    </div>
+    <nav class="theme-builder-nav">
+        <div class="next-step">
+            <%= form.submit 'Next Step' , class:" btn btn-primary" %>
         </div>
-    <%= form.submit 'Next Step' , class:" btn btn-primary" %>
-    <% end %>
-    <span>form finish</span>
+        <div class="spacer"></div>
+        <div class="skip-step">
+            <%= link_to 'skip' , next_wizard_path %>
+        </div>
+        <div class="spacer"></div>
+    </nav>
+<% end %>
+                <span>form finish</span>
+
+    </div>
+    <%# FINISH builder form %>
+
+        <%# START demo page showing what the user is creating start %>
+            <div class="theme_builder_container">
+                <%= render "builder_header" %>
+                    <main class="wizrd-site-main">
+                        <%= render "builder_hero" %>
+                            <%= render "builder_recent_blogs" %>
+        
+                    </main>
+            </div>
+            <%# FINISH demo page showing what the user is creating finish %>
+
+</div>
 
 
-<%= link_to 'skip' , next_wizard_path %>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+<script>
+    // .theme_builder_container switch from list of "Latest" to "Most Popular"
+    // ** needs jquery for now
+    $("document").ready(function () {
+        $(".tab-slider--body").hide();
+        $(".tab-slider--body:first").show();
+    });
+
+    $(".tab-slider--nav li").click(function () {
+        $(".tab-slider--body").hide();
+        var activeTab = $(this).attr("rel");
+        $("#" + activeTab).fadeIn();
+        if ($(this).attr("rel") == "tab2") {
+            $('.tab-slider--tabs').addClass('slide');
+        } else {
+            $('.tab-slider--tabs').removeClass('slide');
+        }
+        $(".tab-slider--nav li").removeClass("active");
+        $(this).addClass("active");
+    });
+
+</script>
