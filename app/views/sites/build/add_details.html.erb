@@ -1,54 +1,85 @@
-<div class="builder_steps add-details step1">
+<div class="builder_steps add-details step2">
     <%# START builder form start %>
-    <div class="theme-builder-prompts step1">
-<h1>add details</h1>
+    <div class="theme-builder-prompts">
+        <h1>add details</h1>
 
-<span>form start</span>
-<%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
-    <div id="names" class="mb-3">
-        <%= form.label :website_name, class: 'form-label' %><span class="required">⍟</span>
-            <span class="names">
-                <%= form.text_field :name, class: 'form-control' , placeholder: "Subject" %>
-            </span>
-            <%= form.label :domain_name, class: 'form-label' %><span class="required">⍟</span>
+        <span>form start</span>
+        <%= form_for @site, 
+            method: :put, 
+            url: wizard_path, 
+            data: {turbo: false } do |form| 
+        %>
+            <div id="names" class="mb-3">
+                <%= form.label :website_name, class: 'form-label' %><span class="required">⍟</span>
+                <span class="names">
+                    <%= form.text_field :name, class: 'form-control' , placeholder: "Subject" %>
+                    <p>* updates preview</p>
+                </span>
+                <%= form.label :domain_name, class: 'form-label' %><span class="required">⍟</span>
                 <span class="names">
                     <%= form.text_field :subdomain, class: 'form-control' , placeholder: "domain name" %>
                 </span>
                 <p class="help">
+                    tooltip:
+                    <br />
                     Good subject lines give people a good reason to check out your content.<br />
                     Preview text (optional) appears in the subject line after the subject line.
                 </p>
-    </div>
-    <div class="logo_upload">
-        <%= form.label :logo, class: 'form-label' %><br />
-            <%= form.file_field :logo %>
-    </div>
-    <nav class="theme-builder-nav">
-        <div class="next-step">
-            <%= form.submit 'Next Step' , class:" btn btn-primary" %>
-        </div>
-        <div class="spacer"></div>
-        <div class="skip-step">
-            <%= link_to 'skip' , next_wizard_path %>
-        </div>
-        <div class="spacer"></div>
-    </nav>
-<% end %>
-                <span>form finish</span>
+            </div>
+            <div class="logo_upload">
+                <p>* pops up dialog to choose from splash
+                <br />
+                * image is displayed in form
+                <br />
+                * updates preview</p>
+
+                <br />
+                
+                <%= form.label :logo, class: 'form-label' %><br />
+                <%= form.file_field :logo %>
+            </div>
+            <div class="headline">
+                <%= form.label :headline, class: 'form-label' %><span class="required">⍟</span>
+                <br />
+                <%= form.text_field :headline, class: 'form-control' , placeholder: "Learn how to Hollywood." %>
+                
+                <p><br />
+                    * updates preview</p>
+
+            </div>
+            <div class="tagline">
+                <%= form.label :tagline, class: 'form-label' %><span class="required">⍟</span>
+                <%= form.text_field :tagline, class: 'form-control' , placeholder: "No biz like show biz." %>
+                <p>* updates preview</p>
+
+
+            </div>
+            <nav class="theme-builder-nav">
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="skip-step">
+                    <%= link_to 'skip' , next_wizard_path %>
+                </div>
+                <div class="next-step">
+                    <%= form.submit 'Next Step' , class:" btn btn-primary" %>
+                </div>
+            </nav>
+        <% end %>
+        <span>form finish</span>
 
     </div>
     <%# FINISH builder form %>
 
-        <%# START demo page showing what the user is creating start %>
-            <div class="theme_builder_container">
-                <%= render "builder_header" %>
-                    <main class="wizrd-site-main">
-                        <%= render "builder_hero" %>
-                            <%= render "builder_recent_blogs" %>
-        
-                    </main>
-            </div>
-            <%# FINISH demo page showing what the user is creating finish %>
+    <%# START demo page showing what the user is creating start %>
+        <div class="theme_builder_container">
+            <%= render "builder_header" %>
+                <main class="wizrd-site-main">
+                    <%= render "builder_hero" %>
+                        <%= render "builder_recent_blogs" %>
+
+                </main>
+        </div>
+    <%# FINISH demo page showing what the user is creating finish %>
 
 </div>
 
