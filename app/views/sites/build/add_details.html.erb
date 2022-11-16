@@ -19,14 +19,29 @@
                 <span class="names">
                     <%= form.text_field :subdomain, class: 'form-control' , placeholder: "domain name" %>
                 </span>
-                <p class="help">
-                    tooltip:
+                <!-- <p class="help">
+                    this should be a tooltip:
                     <br />
                     Good subject lines give people a good reason to check out your content.<br />
                     Preview text (optional) appears in the subject line after the subject line.
-                </p>
+                </p> -->
             </div>
             <div class="logo_upload">
+
+                <!-- 
+                    rails searches:
+                    irb(main):015:0> search_results = Unsplash::Photo.search("cats")
+W, [2022-11-16T13:23:16.603592 #16211]  WARN -- : The tags property in this endpoint is deprecated. https://changelog.unsplash.com/deprecations/2021/07/12/tags-search-deprecation.html
+=>
+[#<Unsplash::Photo:0x000000010898ac98
+...
+irb(main):016:0> thumbs = search_results.map {|e| e.urls["thumb"]}
+=> ["https://images.unsplash.com/photo-1592194996308-7b43878e84a6?crop=entropy&cs=tinysrgb&fit=m...
+irb(main):017:0>
+                 -->
+                 <!-- 
+                    possible source code: how to autocomplete google searches
+                  -->
                 <p>* pops up dialog to choose from splash
                 <br />
                 * image is displayed in form

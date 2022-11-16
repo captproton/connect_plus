@@ -89,3 +89,4 @@ gem "responders", github: "heartcombo/responders", branch: "main"
 
 # app-specfic gems
 gem 'wicked', '~> 2.0'
+gem "unsplash", "~> 3.0"
