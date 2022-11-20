@@ -52,6 +52,9 @@ irb(main):017:0>
                 
                 <%= form.label :logo, class: 'form-label' %><br />
                 <%= form.file_field :logo %>
+                <a href="#">open unsplash image modal</a>
+                <%= form.text_field :logo_url, class: 'form-control' , placeholder: "url of logo" %>
+
             </div>
             <div class="headline">
                 <%= form.label :headline, class: 'form-label' %><span class="required">⍟</span>
