@@ -14,8 +14,32 @@
   <div class="mb-3">
     <%= form.label :name, class: 'form-label' %>
       <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :subdomain, class: 'form-label' %>
+      <%= form.text_field :subdomain, class: 'form-control' %>
+  </div>
+  <!--  -->
+  <% frame_id=dom_id(@site, "headline_turbo_frame" ) %>
+
+  <turbo-frame id="<%= frame_id %>">
+
+    <div class="mb-3">
+      <%= form.label :headline, class: 'form-label' %>
+        <%= form.text_field :headline, class: 'form-control' %>
     </div>
 
+  </turbo-frame>
+
+  <div class="mb-3">
+    <%= form.label :tagline, class: 'form-label' %>
+      <%= form.text_field :tagline, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :logo_url, class: 'form-label' %>
+      <%= form.text_field :logo_url, class: 'form-control' %>
+  </div>
 
   <div class="mb-3">
     <% if site.persisted? %>

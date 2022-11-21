@@ -2,11 +2,13 @@
     style="background-image: url(/static/blog-banner.png)">
     <div class="container">
         <div class="banner-content">
-            <h1 class="centered-text">
-                Welcome to the most reliable
-                source for healthy recipes!</h1>
+            <% frame_id = dom_id(@site, "headline_turbo_frame") %>
+            <%= turbo_frame_tag frame_id do %>
+                <h1 class="centered-text"><%= @site.headline %></h1>
+                <%= link_to "Edit Headline", edit_site_path(@site) %>
+            <% end %>
             <span class="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id illo odio, ut eligendi ratione quas dicta voluptates autem eveniet, laborum iste rerum!
+                <%= @site.tagline %>
             </span>
             <br>
             <div class="centered-flex-items">

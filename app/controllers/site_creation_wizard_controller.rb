@@ -8,7 +8,7 @@ class SiteCreationWizardController < ApplicationController
   before_action :set_site
 
   def show
-    # @site = current_user.sites.find(params[:site_id])
+    @site = Sites.find(params[:site_id])
 
     render_wizard
   end
