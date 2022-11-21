@@ -161,12 +161,6 @@ margin: 0 auto;
   
 <section class="gallery_grid">
 
-  <% @photos.each do |photo| %>
-
-      <div class="content flow featured">
-        <%= image_tag(photo.urls.thumb) %>
-      </div>
-
-    <% end %>
+    <%= render :partial=> "photo", :collection => @photos %>
 
 </section>
