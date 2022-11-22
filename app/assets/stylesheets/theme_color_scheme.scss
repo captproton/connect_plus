@@ -25,10 +25,14 @@ $tab-border-line: 1px solid rgba(0,0,0,.2);
 }
 
 .theme-builder-prompts {
+  form {
+    background-color: #D3D3D3;
+  }
   .brand-color-prompt {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;    
+    
   }
   .theme-builder-nav {
     display: grid;

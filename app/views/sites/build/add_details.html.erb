@@ -1,28 +1,161 @@
-<h1>add details</h1>
+<div class="builder_steps add-details step2">
+    <%# START builder form start %>
+    <div class="theme-builder-prompts">
+        <!-- start modal -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+        </button>
 
-    <span>form start</span>
-    <%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
-        <div id="names" class="mb-3">
-            <%= form.label :website_name, class: 'form-label' %><span class="required">⍟</span>
-            <span class="names">
-                <%= form.text_field :name, class: 'form-control' , placeholder: "Subject" %>
-            </span>
-            <%= form.label :domain_name, class: 'form-label' %><span class="required">⍟</span>
-            <span class="names">
-                <%= form.text_field :subdomain, class: 'form-control' , placeholder: "domain name" %>
-            </span>
-            <p class="help">
-                Good subject lines give people a good reason to check out your content.<br />
-                Preview text (optional) appears in the subject line after the subject line.
-            </p>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
         </div>
-        <div class="logo_upload">
-            <%= form.label :logo, class: 'form-label' %><br />
-            <%= form.file_field :logo %>
         </div>
-    <%= form.submit 'Next Step' , class:" btn btn-primary" %>
-    <% end %>
-    <span>form finish</span>
+
+        <!-- finish modal -->
+        <h1>add details</h1>
+
+        <span>form start</span>
+        <%= form_for @site, 
+            method: :put, 
+            url: wizard_path, 
+            data: {turbo: false } do |form| 
+        %>
+            <div id="names" class="mb-3">
+                <%= form.label :website_name, class: 'form-label' %><span class="required">⍟</span>
+                <span class="names">
+                    <%= form.text_field :name, class: 'form-control' , placeholder: "Subject" %>
+                    <p>* updates preview</p>
+                </span>
+                <%= form.label :domain_name, class: 'form-label' %><span class="required">⍟</span>
+                <span class="names">
+                    <%= form.text_field :subdomain, class: 'form-control' , placeholder: "domain name" %>
+                </span>
+                <!-- <p class="help">
+                    this should be a tooltip:
+                    <br />
+                    Good subject lines give people a good reason to check out your content.<br />
+                    Preview text (optional) appears in the subject line after the subject line.
+                </p> -->
+            </div>
+            <div class="logo_upload">
+
+                <!-- 
+                    rails searches:
+                    irb(main):015:0> search_results = Unsplash::Photo.search("cats")
+W, [2022-11-16T13:23:16.603592 #16211]  WARN -- : The tags property in this endpoint is deprecated. https://changelog.unsplash.com/deprecations/2021/07/12/tags-search-deprecation.html
+=>
+[#<Unsplash::Photo:0x000000010898ac98
+...
+irb(main):016:0> thumbs = search_results.map {|e| e.urls["thumb"]}
+=> ["https://images.unsplash.com/photo-1592194996308-7b43878e84a6?crop=entropy&cs=tinysrgb&fit=m...
+irb(main):017:0>
+                 -->
+                 <!-- 
+                    possible source code: how to autocomplete google searches
+                  -->
+                <p>* pops up dialog to choose from splash
+                <br />
+                * image is displayed in form
+                <br />
+                * updates preview</p>
+
+                <br />
+                
+                <%= form.label :logo, class: 'form-label' %><br />
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                </button>
+
+                <%= form.file_field :logo %>
+                <a href="#">open unsplash image modal</a>
+                <%= form.text_field :logo_url, class: 'form-control' , placeholder: "url of logo" %>
+
+            </div>
+            <div class="headline">
+                <%= form.label :headline, class: 'form-label' %><span class="required">⍟</span>
+                <br />
+                <%= form.text_field :headline, class: 'form-control' , placeholder: "Learn how to Hollywood." %>
+                
+                <p><br />
+                    * updates preview</p>
+
+            </div>
+            <div class="tagline">
+                <%= form.label :tagline, class: 'form-label' %><span class="required">⍟</span>
+                <%= form.text_field :tagline, class: 'form-control' , placeholder: "No biz like show biz." %>
+                <p>* updates preview</p>
 
 
-<%= link_to 'skip' , next_wizard_path %>
+            </div>
+            <nav class="theme-builder-nav">
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="skip-step">
+                    <%= link_to 'skip' , next_wizard_path %>
+                </div>
+                <div class="next-step">
+                    <%= form.submit 'Next Step' , class:" btn btn-primary" %>
+                </div>
+            </nav>
+        <% end %>
+        <span>form finish</span>
+
+    </div>
+    <%# FINISH builder form %>
+
+    <%# START demo page showing what the user is creating start %>
+        <div class="theme_builder_container">
+            <%= render "builder_header" %>
+                <main class="wizrd-site-main">
+                    <%= render "builder_hero" %>
+                    <%= render "builder_recent_blogs" %>
+                </main>
+        </div>
+    <%# FINISH demo page showing what the user is creating finish %>
+
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+<script>
+    // .theme_builder_container switch from list of "Latest" to "Most Popular"
+    // ** needs jquery for now
+    $("document").ready(function () {
+        $(".tab-slider--body").hide();
+        $(".tab-slider--body:first").show();
+    });
+
+    $(".tab-slider--nav li").click(function () {
+        $(".tab-slider--body").hide();
+        var activeTab = $(this).attr("rel");
+        $("#" + activeTab).fadeIn();
+        if ($(this).attr("rel") == "tab2") {
+            $('.tab-slider--tabs').addClass('slide');
+        } else {
+            $('.tab-slider--tabs').removeClass('slide');
+        }
+        $(".tab-slider--nav li").removeClass("active");
+        $(this).addClass("active");
+    });
+
+</script>

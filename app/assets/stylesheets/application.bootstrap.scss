@@ -2,4 +2,8 @@
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import "jumpstart/announcements";
 @import "layout";
-@import "theme_color_scheme";
+// @import "theme_color_scheme";
+@import "builder/layout";
+@import "builder/theme_colors";
+@import "builder/theme_add_details";
+@import "inline_edit";

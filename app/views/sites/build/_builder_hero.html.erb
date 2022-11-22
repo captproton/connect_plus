@@ -2,12 +2,19 @@
     style="background-image: url(/static/blog-banner.png)">
     <div class="container">
         <div class="banner-content">
-            <h1 class="centered-text">
-                Welcome to the most reliable
-                source for healthy recipes!</h1>
-            <span class="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id illo odio, ut eligendi ratione quas dicta voluptates autem eveniet, laborum iste rerum!
-            </span>
+            <!--  -->
+        <%= render "sites/shared/inline_edit" , model: @site, method: :headline do %>
+            <h1>
+                <%= @site.headline %>
+            </h1>
+        <% end %>
+            <!--  -->
+        <%= render "sites/shared/inline_edit" , model: @site, method: :tagline do %>
+            <h1>
+                <%= @site.tagline %>
+            </h1>
+            <% end %>
+
             <br>
             <div class="centered-flex-items">
                 <button type="button" 

@@ -1,0 +1,14 @@
+// layout for wizard to customize default theme colors
+
+.builder_steps {
+display: grid;
+grid-gap: 20px;    
+
+}
+
+@media (min-width: 600px) {
+  .builder_steps {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+}

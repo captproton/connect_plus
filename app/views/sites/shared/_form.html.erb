@@ -14,8 +14,28 @@
   <div class="mb-3">
     <%= form.label :name, class: 'form-label' %>
       <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :subdomain, class: 'form-label' %>
+      <%= form.text_field :subdomain, class: 'form-control' %>
+  </div>
+  <!--  -->
+<%= render "sites/shared/inline_fields" , form: form, method: :headline do %>
+    <div class="mb-3">
+      <%= form.label :headline, class: 'form-label' %>
+      <%= form.text_field :headline, class: 'form-control' %>
     </div>
+<% end %>
+  <!--  -->
+  <div class="mb-3">
+    <%= form.label :tagline, class: 'form-label' %>
+      <%= form.text_field :tagline, class: 'form-control' %>
+  </div>
 
+  <div class="mb-3">
+    <%= form.label :logo_url, class: 'form-label' %>
+      <%= form.text_field :logo_url, class: 'form-control' %>
+  </div>
 
   <div class="mb-3">
     <% if site.persisted? %>

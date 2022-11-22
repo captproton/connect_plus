@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  # search unsplash 
+  resources :photos, only: [:index]
   # site creation and mgt
   resources :sites do
     resources :build, controller: 'sites/build'
