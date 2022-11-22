@@ -37,13 +37,15 @@
     <dd>
       <dt>headline</dt>
       <% frame_id=dom_id(@site, "headline_turbo_frame" ) %>
+      <%= form_with model: @site, class: "contents" , data: { turbo_frame: frame_id } do |form| %>
+
         <turbo-frame id="<%= frame_id %>" >
                 <dt>headline <%= link_to "Edit" , edit_site_path(@site) %> </dt>
           <h1 class="centered-text">
             <%= @site.headline %> 
           </h1>
-      </turbo-frame>
-
+        </turbo-frame>
+      <% end %>
     </dd>
 
   </dl>

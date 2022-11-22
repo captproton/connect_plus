@@ -20,17 +20,13 @@
       <%= form.text_field :subdomain, class: 'form-control' %>
   </div>
   <!--  -->
-  <% frame_id=dom_id(@site, "headline_turbo_frame" ) %>
-
-  <turbo-frame id="<%= frame_id %>">
-
+<%= render "sites/shared/inline_fields" , form: form, method: :headline do %>
     <div class="mb-3">
       <%= form.label :headline, class: 'form-label' %>
-        <%= form.text_field :headline, class: 'form-control' %>
+      <%= form.text_field :headline, class: 'form-control' %>
     </div>
-
-  </turbo-frame>
-
+<% end %>
+  <!--  -->
   <div class="mb-3">
     <%= form.label :tagline, class: 'form-label' %>
       <%= form.text_field :tagline, class: 'form-control' %>

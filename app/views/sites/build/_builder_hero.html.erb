@@ -2,14 +2,19 @@
     style="background-image: url(/static/blog-banner.png)">
     <div class="container">
         <div class="banner-content">
-            <% frame_id = dom_id(@site, "headline_turbo_frame") %>
-            <%= turbo_frame_tag frame_id do %>
-                <h1 class="centered-text"><%= @site.headline %></h1>
-                <%= link_to "Edit Headline", edit_site_path(@site) %>
-            <% end %>
-            <span class="description">
+            <!--  -->
+        <%= render "sites/shared/inline_edit" , model: @site, method: :headline do %>
+            <h1>
+                <%= @site.headline %>
+            </h1>
+        <% end %>
+            <!--  -->
+        <%= render "sites/shared/inline_edit" , model: @site, method: :tagline do %>
+            <h1>
                 <%= @site.tagline %>
-            </span>
+            </h1>
+            <% end %>
+
             <br>
             <div class="centered-flex-items">
                 <button type="button" 
