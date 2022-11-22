@@ -5,8 +5,9 @@
 <turbo-frame id="<%= frame_id %>" class="contents">
   <%= yield %>
 
-  <%= form.button class: "inline-action" do %>
+  <%= form.button class: "btn btn-primary inline-action" do %>
     Save <%= form.object.class.human_attribute_name(method) %>
   <% end %>
+  <!-- /sites/18/build/add_details -->
   <%= link_to "Cancel", site_path(form.object), class: "inline-action" %>
 </turbo-frame>

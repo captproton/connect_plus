@@ -1,7 +1,25 @@
 <div class="site-header" id="header">
     <div class="main-header">
         <div class="header-logo">
-            <span>Your name here</span>
+            <%= render "sites/shared/inline_edit" , model: @site, method: :logo_url do %>
+            
+                <% if !@site.logo_url.present? %>
+                    <svg height="50" width="50">
+                        <circle cx="25" cy="25" r="20" stroke="black" stroke-width="3" fill="red" />
+                    </svg>
+                <% else %>
+                    <%= image_tag(@site.logo_url, width: "40") %>
+                <% end %>
+            <% end %>
+
+
+            <%= render "sites/shared/inline_edit" , model: @site, method: :name do %>
+                <span>
+                    <%= @site.name || "Your name here" %>
+                </span>
+            <% end %>
+
+                
         </div>
 
         <nav class="wizrd-site-navigation wizrd-site-navigation-center false">

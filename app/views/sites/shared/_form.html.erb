@@ -11,11 +11,13 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :name, class: 'form-label' %>
-      <%= form.text_field :name, class: 'form-control' %>
-  </div>
-  <div class="mb-3">
+  <%= render "sites/shared/inline_fields" , form: form, method: :name do %>
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+        <%= form.text_field :name, class: 'form-control' %>
+    </div>
+  <% end %>
+    <div class="mb-3">
     <%= form.label :subdomain, class: 'form-label' %>
       <%= form.text_field :subdomain, class: 'form-control' %>
   </div>
@@ -27,14 +29,17 @@
     </div>
 <% end %>
   <!--  -->
+  <%= render "sites/shared/inline_fields" , form: form, method: :tagline do %>
   <div class="mb-3">
     <%= form.label :tagline, class: 'form-label' %>
-      <%= form.text_field :tagline, class: 'form-control' %>
+    <%= form.text_field :tagline, class: 'form-control' %>
   </div>
-
+<% end %>
   <div class="mb-3">
-    <%= form.label :logo_url, class: 'form-label' %>
+    <%= render "sites/shared/inline_fields" , form: form, method: :logo_url do %>
+      <%= form.label :logo_url, class: 'form-label' %>
       <%= form.text_field :logo_url, class: 'form-control' %>
+    <% end %>
   </div>
 
   <div class="mb-3">

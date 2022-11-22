@@ -9,6 +9,7 @@ class Sites::BuildController < ApplicationController
 
   def show
     # @site = current_user.sites.find(params[:site_id])
+    logo_url = params[:logo_url] || "default_logo"
 
     render_wizard
   end
