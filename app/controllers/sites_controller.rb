@@ -12,7 +12,8 @@ class SitesController < ApplicationController
   # GET /sites/1 or /sites/1.json
   def show
     @brand_primary_color = @site.brand_primary_color.split(")")[0].split("(").last.split(",")
-    # @brand_primary_color = "rgba(#{brand_primary_color[0]},#{brand_primary_color[1]},#{brand_primary_color[2]},#{brand_primary_color[3]})"
+    @hero_background_url = @site.hero_image_url || "/static/blog-banner.png"
+
   end
 
   # GET /sites/new
@@ -71,6 +72,6 @@ class SitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def site_params
-      params.require(:site).permit(:name, :subdomain, :headline, :tagline, :logo_url)
+      params.require(:site).permit(:name, :subdomain, :headline, :tagline, :logo_url, :hero_image_url)
     end
 end

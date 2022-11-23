@@ -9,6 +9,8 @@ class Sites::BuildController < ApplicationController
 
   def show
     # @site = current_user.sites.find(params[:site_id])
+    logo_url = params[:logo_url] || "default_logo"
+    @hero_background_url = @site.hero_image_url || "/static/blog-banner.png"
 
     render_wizard
   end

@@ -31,22 +31,53 @@
   </dl><dl class="dl-horizontal">
     <dt>logo:</dt>
     <dd>
-      <%= image_tag(@site.logo)%>
-      <%= "color : #{@brand_primary_color}" %>
-    </dd>
-    <dd>
-      <dt>headline</dt>
-      <% frame_id=dom_id(@site, "headline_turbo_frame" ) %>
-      <%= form_with model: @site, class: "contents" , data: { turbo_frame: frame_id } do |form| %>
-
-        <turbo-frame id="<%= frame_id %>" >
-                <dt>headline <%= link_to "Edit" , edit_site_path(@site) %> </dt>
-          <h1 class="centered-text">
-            <%= @site.headline %> 
-          </h1>
-        </turbo-frame>
+      <%= render "sites/shared/inline_edit" , model: @site, method: :logo_url do %>
+        <% if !@site.logo_url.present? %>
+            <svg height="50" width="50">
+                <circle cx="25" cy="25" r="20" stroke="black" stroke-width="3" fill="red" />
+            </svg>
+        <% else %>
+            <%= image_tag(@site.logo_url, width: "40") %>
+        <% end %>
       <% end %>
     </dd>
+    <dd>
+
+    <dt>** hero image url:</dt>
+    <dd>
+      <!--  -->
+      <%= render "sites/shared/inline_edit" , model: @site, method: :hero_image_url do %>
+        <%= render "sites/shared/hero_section", locals: {hero_background_url: @hero_background_url} %>
+      <% end %>      
+  <!--  -->
+    </dd>
+    <dd>
+
+
+      <dt>name</dt>
+    <%= render "sites/shared/inline_edit" , model: @site, method: :name do %>
+      <span>
+        <%= @site.name %>
+      </span>
+      <% end %>
+        </dd>
+    <dd>
+    <dt>headline</dt>
+    <%= render "sites/shared/inline_edit" , model: @site, method: :headline do %>
+      <h1>
+        <%= @site.headline %>
+      </h1>
+      <% end %>
+        </dd>
+    <dd>
+      <dt>tagline</dt>
+        <%= render "sites/shared/inline_edit" , model: @site, method: :tagline do %>
+          <p>
+            <%= @site.tagline %>
+          </p>
+          <% end %>
+    </dd>
+
 
   </dl>
 </div>
