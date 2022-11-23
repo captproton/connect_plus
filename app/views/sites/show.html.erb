@@ -42,7 +42,19 @@
       <% end %>
     </dd>
     <dd>
-    <dt>name</dt>
+
+    <dt>** hero image url:</dt>
+    <dd>
+      <!--  -->
+      <%= render "sites/shared/inline_edit" , model: @site, method: :hero_image_url do %>
+        <%= render "sites/shared/hero_section", locals: {hero_background_url: @hero_background_url} %>
+      <% end %>      
+  <!--  -->
+    </dd>
+    <dd>
+
+
+      <dt>name</dt>
     <%= render "sites/shared/inline_edit" , model: @site, method: :name do %>
       <span>
         <%= @site.name %>

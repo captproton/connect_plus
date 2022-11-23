@@ -43,6 +43,13 @@
   </div>
 
   <div class="mb-3">
+    <%= render "sites/shared/inline_fields" , form: form, method: :hero_image_url do %>
+      <%= form.label :hero_image_url, class: 'form-label' %>
+      <%= form.text_field :hero_image_url, class: 'form-control' %>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
     <% if site.persisted? %>
       <div class="float-end">
         <%= link_to 'Destroy', site, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>

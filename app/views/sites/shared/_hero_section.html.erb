@@ -1,0 +1,32 @@
+<section 
+    class="home-banner black-text hero_section" 
+    style="background-image: url(<%= @hero_background_url %>)"
+>
+
+    <div class="container">
+        <div class="banner-content">
+
+            <!--  -->
+            <%= render "sites/shared/inline_edit" , model: @site, method: :headline do %>
+                <h1>
+                    <%= @site.headline %>
+                </h1>
+                <% end %>
+                    <!--  -->
+                    <%= render "sites/shared/inline_edit" , model: @site, method: :tagline do %>
+                        <p>
+                            <%= @site.tagline %>
+                        </p>
+                        <% end %>
+
+                            <br>
+                            <div class="centered-flex-items">
+                                <button type="button" class="btn btn-primary author-subscription-action"
+                                    data-bs-toggle="modal" data-bs-target="#subscribeModal"
+                                    onclick="closeModal()">Subscribe</button>
+                            </div>
+
+
+        </div>
+    </div>
+</section>
