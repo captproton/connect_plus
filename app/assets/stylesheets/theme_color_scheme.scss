@@ -17,7 +17,7 @@ $tab-border-line: 1px solid rgba(0,0,0,.2);
 @media (min-width: 600px) {
   .builder_steps {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    // grid-template-columns: repeat(2, 1fr); 
     grid-gap: 20px;    
 
   }

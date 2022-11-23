@@ -36,24 +36,24 @@
             url: wizard_path, 
             data: {turbo: false } do |form| 
         %>
-            <div id="names" class="mb-3">
-                <%= form.label :website_name, class: 'form-label' %><span class="required">⍟</span>
-                <span class="names">
-                    <%= form.text_field :name, class: 'form-control' , placeholder: "Subject" %>
-                    <p>* updates preview</p>
-                </span>
-                <%= form.label :domain_name, class: 'form-label' %><span class="required">⍟</span>
-                <span class="names">
-                    <%= form.text_field :subdomain, class: 'form-control' , placeholder: "domain name" %>
-                </span>
+            <!-- <div id="names" class="mb-3"> -->
+                <!-- <%= form.label :website_name, class: 'form-label' %><span class="required">⍟</span> -->
+                <!-- <span class="names"> -->
+                    <!-- <%= form.text_field :name, class: 'form-control' , placeholder: "Subject" %> -->
+                    <!-- <p>* updates preview</p> -->
+                <!-- </span> -->
+                <!-- <%= form.label :domain_name, class: 'form-label' %><span class="required">⍟</span> -->
+                <!-- <span class="names"> -->
+                    <!-- <%= form.text_field :subdomain, class: 'form-control' , placeholder: "domain name" %> -->
+                <!-- </span> -->
                 <!-- <p class="help">
                     this should be a tooltip:
                     <br />
                     Good subject lines give people a good reason to check out your content.<br />
                     Preview text (optional) appears in the subject line after the subject line.
                 </p> -->
-            </div>
-            <div class="logo_upload">
+            <!-- </div> -->
+            <!-- <div class="logo_upload"> -->
 
                 <!-- 
                     rails searches:
@@ -69,41 +69,25 @@ irb(main):017:0>
                  <!-- 
                     possible source code: how to autocomplete google searches
                   -->
-                <p>* pops up dialog to choose from splash
-                <br />
-                * image is displayed in form
-                <br />
-                * updates preview</p>
+                <!-- <p>* pops up dialog to choose from splash -->
+                <!-- <br /> -->
+                <!-- * image is displayed in form -->
+                <!-- <br /> -->
+                <!-- * updates preview</p> -->
 
-                <br />
+                <!-- <br /> -->
                 
-                <%= form.label :logo, class: 'form-label' %><br />
+                <!-- <%= form.label :logo, class: 'form-label' %><br /> -->
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
-                </button>
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
+                    <!-- Launch demo modal -->
+                <!-- </button> -->
 
-                <%= form.file_field :logo %>
-                <a href="#">open unsplash image modal</a>
-                <%= form.text_field :logo_url, class: 'form-control' , placeholder: "url of logo" %>
+                <!-- <%= form.file_field :logo %> -->
+                <!-- <a href="#">open unsplash image modal</a> -->
+                <!-- <%= form.text_field :logo_url, class: 'form-control' , placeholder: "url of logo" %> -->
 
-            </div>
-            <div class="headline">
-                <%= form.label :headline, class: 'form-label' %><span class="required">⍟</span>
-                <br />
-                <%= form.text_field :headline, class: 'form-control' , placeholder: "Learn how to Hollywood." %>
-                
-                <p><br />
-                    * updates preview</p>
-
-            </div>
-            <div class="tagline">
-                <%= form.label :tagline, class: 'form-label' %><span class="required">⍟</span>
-                <%= form.text_field :tagline, class: 'form-control' , placeholder: "No biz like show biz." %>
-                <p>* updates preview</p>
-
-
-            </div>
+            <!-- </div> -->
             <nav class="theme-builder-nav">
                 <div class="spacer"></div>
                 <div class="spacer"></div>

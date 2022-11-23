@@ -1,0 +1,44 @@
+<div class="builder_steps add-website-name step2">
+    <%# %>
+        <%# START builder form start %>
+            <div class="theme-builder-prompts step4">
+                <div class="brand-color-prompt">
+                    <div class="label">
+                        Click on "Edit hero image url" to customize your hero image:
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="spacer"></div>
+
+                </div>
+
+                <!-- START color-picker  support-->
+                <%= render "color_picker_support" %>
+                    <!-- FINISH color-picker  support-->
+
+                    <nav class="theme-builder-nav">
+                        <div class="skip-step">
+                            <%= link_to 'skip' , next_wizard_path %>
+                        </div>
+                        <div class="spacer"></div>
+                        <div class="next-step">
+                            <%= link_to 'Next Step' , next_wizard_path, class: "btn btn-primary" %>
+                        </div>
+                        <div class="spacer"></div>
+                    </nav>
+
+            </div>
+            <%# FINISH builder form finish %>
+
+                <%# START demo page showing what the user is creating start %>
+                    <div class="theme_builder_container">
+                        <%= render "builder_header" %>
+                            <main class="wizrd-site-main">
+                                <%= render "builder_hero" %>
+                                    <%= render "builder_recent_blogs" %>
+                            </main>
+                    </div>
+                    <%= render "builder_blog_list_switch" %>
+                        <%# FINISH demo page showing what the user is creating finish %>
+
+
+</div>

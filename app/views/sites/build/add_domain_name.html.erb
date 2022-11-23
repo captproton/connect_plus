@@ -1,15 +1,18 @@
-<div class="builder_steps color-scheme step1">
+<div class="builder_steps add-website-name step2">
     <%# %>
-    <%# START builder form start %>
-        <div class="theme-builder-prompts step1">
+        <%# START builder form start %>
+        <div class="theme-builder-prompts step4">
             <div class="brand-color-prompt">
                 <div class="label">
-                    Set your brand color:
+                    Set your custom domain:
                 </div>
                 <div class="spacer"></div>
-                <div class="color-input-button">
-                    <div class="color-picker"></div>
-                </div>
+                <%= render "sites/shared/inline_edit" , model: @site, method: :subdomain do %>
+                    <span>
+                        <%= @site.subdomain || "subdomain" %>
+                    </span>
+                <% end %>
+                
             </div>
             
             <!-- START color-picker  support-->
@@ -17,16 +20,12 @@
             <!-- FINISH color-picker  support-->
             
             <nav class="theme-builder-nav">
-                <div class="next-step">
-                <%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
-                    <%= form.hidden_field :brand_primary_color, value: "" %>
-                    <%= form.submit 'Next Step' , class:" btn btn-primary" %>
-                <% end %>
-
-                </div>
-                <div class="spacer"></div>
                 <div class="skip-step">
                     <%= link_to 'skip' , next_wizard_path %>
+                </div>
+                <div class="spacer"></div>
+                <div class="next-step">
+                    <%= link_to 'Next Step' , next_wizard_path, class: "btn btn-primary" %>
                 </div>
                 <div class="spacer"></div>
             </nav>

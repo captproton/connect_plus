@@ -1,16 +1,10 @@
-<div class="builder_steps color-scheme step1">
+<div class="builder_steps add-website-name step2">
     <%# %>
     <%# START builder form start %>
-        <div class="theme-builder-prompts step1">
-            <div class="brand-color-prompt">
-                <div class="label">
-                    Set your brand color:
-                </div>
-                <div class="spacer"></div>
-                <div class="color-input-button">
-                    <div class="color-picker"></div>
-                </div>
-            </div>
+        <div class="theme-builder-prompts step2">
+            <p class="user-prompt">
+                Enter the custom subdomain for your site.
+            </p>
             
             <!-- START color-picker  support-->
             <%= render "color_picker_support" %>
@@ -18,12 +12,12 @@
             
             <nav class="theme-builder-nav">
                 <div class="next-step">
-                <%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
-                    <%= form.hidden_field :brand_primary_color, value: "" %>
-                    <%= form.submit 'Next Step' , class:" btn btn-primary" %>
-                <% end %>
-
-                </div>
+                    <%= form_for @site, method: :put, url: wizard_path, data: {turbo: false } do |form| %>
+                        <span>
+                            <%= form.text_field :subdomain %>.example.com
+                        </span>
+                            <%= form.submit 'Next Step' , class:" btn btn-primary" %>
+                                <% end %>
                 <div class="spacer"></div>
                 <div class="skip-step">
                     <%= link_to 'skip' , next_wizard_path %>

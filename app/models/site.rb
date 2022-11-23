@@ -1,7 +1,7 @@
 module FormSteps
   # http://api.rubyonrails.org/classes/Module.html#method-i-mattr_accessor
   mattr_accessor :form_steps do
-    %w[initialize_model color_scheme add_details]
+    %w[initialize_model color_scheme add_website_name add_domain_name add_logo add_headline add_tagline add_hero_image]
   end
 end
 

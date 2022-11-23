@@ -25,8 +25,9 @@
   </dl><dl class="dl-horizontal">
     <dt>domain:</dt>
     <dd>
-      <%= @site.subdomain %><br />
-
+      <%= render "sites/shared/inline_edit" , model: @site, method: :subdomain do %>
+        <%= @site.subdomain %><br />
+      <% end %>
     </dd>
   </dl><dl class="dl-horizontal">
     <dt>logo:</dt>
@@ -62,7 +63,8 @@
       <% end %>
         </dd>
     <dd>
-    <dt>headline</dt>
+
+      <dt>headline</dt>
     <%= render "sites/shared/inline_edit" , model: @site, method: :headline do %>
       <h1>
         <%= @site.headline %>

@@ -11,6 +11,7 @@ class Sites::BuildController < ApplicationController
     # @site = current_user.sites.find(params[:site_id])
     logo_url = params[:logo_url] || "default_logo"
     @hero_background_url = @site.hero_image_url || "/static/blog-banner.png"
+    @brand_primary_color = @site.brand_primary_color || "0,0%,100%"
 
     render_wizard
   end
@@ -44,7 +45,21 @@ class Sites::BuildController < ApplicationController
       else
         render_wizard @site, status: :unprocessable_entity
       end
-
+    # step 1
+    when 'add_website_name'
+    # step 2
+    when 'add_domain_name'
+    # step 3
+    when 'add_logo'
+    # step 4
+    when 'add_headline'
+    # step 5
+    when 'add_tagline'
+    # step 6
+    when 'add_hero_image'
+    # step 7?
+    when 'xtra_step1'
+    when 'xtra_step2'
     when 'add_details'
       link_classes = "nav-link active"
       aria_hash     = Hash.new

@@ -17,10 +17,13 @@
         <%= form.text_field :name, class: 'form-control' %>
     </div>
   <% end %>
-    <div class="mb-3">
-    <%= form.label :subdomain, class: 'form-label' %>
-      <%= form.text_field :subdomain, class: 'form-control' %>
-  </div>
+  <%= render "sites/shared/inline_fields" , form: form, method: :subdomain do %>
+      <div class="mb-3">
+      <%= form.label :subdomain, class: 'form-label' %>
+        <%= form.text_field :subdomain, class: 'form-control' %>
+    </div>
+  <% end %>
+
   <!--  -->
 <%= render "sites/shared/inline_fields" , form: form, method: :headline do %>
     <div class="mb-3">
