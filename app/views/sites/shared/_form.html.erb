@@ -38,12 +38,77 @@
     <%= form.text_field :tagline, class: 'form-control' %>
   </div>
 <% end %>
+<!-- START logo search -->
   <div class="mb-3">
+    <style>
+
+    </style>
     <%= render "sites/shared/inline_fields" , form: form, method: :logo_url do %>
-      <%= form.label :logo_url, class: 'form-label' %>
+      <%= form.label :logo, class: 'form-label' %>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Search for logo
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%  @photos = Photo.search("emotion") %>
+              <div class="search-results">
+                <% @photos.each do |photo| %>
+                <% image_id = photo.urls.thumb.split("?").first.split("/").last %>
+
+                  <%= image_tag photo.urls.thumb, 
+                      id: image_id, 
+                      onClick: "javascript:setImage(\'#{image_id}\') " %>
+                <% end %>
+
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <div class="upload-local-image">
+
+                <%= image_tag "/static/sample-blog.png", id: "sample-logo" %>
+              </div>
+              <div class="alt-text-plus-confirm-button">
+                <p>alt text input here</p>
+                <p>[confirm]</p>
+              </div>
+
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <%= form.text_field :logo_url, class: 'form-control' %>
     <% end %>
   </div>
+
+  <script >
+    function setImage(image_id) {
+        const elem = document.getElementById(image_id);
+        console.log(elem.src)
+
+        const logo_url_input = document.getElementById("site_logo_url");
+        logo_url_input.value = elem.src
+
+        const sample_logo = document.getElementById("sample-logo");
+        sample_logo.src = elem.src
+
+      }
+
+  </script>
+<!-- FINISH logo search -->
 
   <div class="mb-3">
     <%= render "sites/shared/inline_fields" , form: form, method: :hero_image_url do %>
@@ -51,6 +116,7 @@
       <%= form.text_field :hero_image_url, class: 'form-control' %>
     <% end %>
   </div>
+
 
   <div class="mb-3">
     <% if site.persisted? %>

@@ -10,6 +10,7 @@ class Site < ApplicationRecord
   belongs_to :user
   has_rich_text :content
   has_one_attached :logo  
+  has_one_attached :avatar
 
 
   enum status: %i[initated processing published]
@@ -34,5 +35,14 @@ class Site < ApplicationRecord
   #   # steps parameter appears before or we are on the current step
   #   return(true) if form_steps.index(step.to_s) <= form.steps.index(step.to_s)
   # end
+
+  ## attach a photo from a URL
+  def attach_avatar_from_url(url:, content_type: 'image/jpg')
+      filename = File.basename(URI.parse(url).path)
+      file = URI.open(url)
+
+      self.avatar.attach(io: file, filename: filename, content_type: 'image/jpg')
+  end
+  
 
 end
